@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -19,10 +20,10 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         $title = fake()->sentence();
-
+        $user = User::first();
         return [
             'title' => $title,
-            'user_id' => 1,
+            'user_id' => $user->id,
             'description' => fake()->text(100),
             'url' => fake()->url(),
             'github_url' => fake()->url(),
