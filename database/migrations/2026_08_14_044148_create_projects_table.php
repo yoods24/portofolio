@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->string('description');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('url', 155);
-            $table->string('image');
+            $table->string('url', 155)->nullable();
+            $table->string('image')->nullable();
             $table->string('slug', 50);
-            $table->string('github_url', 155);
+            $table->string('github_url', 155)->nullable();
             $table->timestamps();
         });
     }
